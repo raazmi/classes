@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #010448;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    min-height: 100vh;
+}
+
+.box {
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    border: 10px solid #0066ff;
+    position: relative;
+    animation: boxColor 5s linear infinite;
+}
+
+.animated-leftright,
+.animated-rightleft,
+.animated-topbottom,
+.animated-bottomtop {
+    position: absolute;
+    height: 10px;
+    width: 30px;
+    z-index: 10;
+    border-radius: 1000px;
+}
+.animated-topbottom,
+.animated-bottomtop {
+    height: 30px;
+    width: 10px;
+}
+.animated-leftright {
+    left: -10px;
+    top: -10px;
+    animation: myAnimation 5s linear infinite;
+    background: linear-gradient(to right, transparent, #ffffff);
+}
+.animated-rightleft {
+    top: auto;
+    right: -10px;
+    bottom: -10px;
+    animation: myAnimation 5s linear infinite reverse;
+    background: linear-gradient(to left, transparent, #ffffff);
+}
+.animated-topbottom {
+    top: -10px;
+    left: auto;
+    right: -10px;
+    animation: myAnimation2 5s linear infinite;
+    background: linear-gradient(to bottom, transparent, #ffffff);
+}
+.animated-bottomtop {
+    top: auto;
+    bottom: -10px;
+    left: -10px;
+    animation: myAnimation2 5s linear infinite reverse;
+    background: linear-gradient(to top, transparent, #ffffff);
+}
+
+@keyframes myAnimation {
+    0% {
+        left: -10px;
+    }
+    100% {
+        left: calc(100% - 20px);
+    }
+}
+@keyframes myAnimation2 {
+    0% {
+        top: -10px;
+    }
+    100% {
+        top: calc(100% - 20px);
+    }
+}
+
+@keyframes boxColor {
+    0% {
+        background: #8e2de2;
+    }
+    25% {
+        background: #8a2387;
+    }
+    50% {
+        background: #fc466b;
+    }
+    75% {
+        background: #c0392b;
+    }
+    100% {
+        background: #8e2de2;
+    }
+}
